@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="HorizontalNumProgressBar">
+        <attr name="progress_reached_color" format="color|reference"/>
+        <attr name="progress_unreached_color" format="color|reference"/>
+        <attr name="progress_height" format="dimension|reference"/>
+        <attr name="progress_text_color" format="color|reference"/>
+        <attr name="progress_text_size" format="dimension|reference"/>
+        <attr name="progress_text_offset" format="dimension|reference"/>
+    </declare-styleable>
+</resources>
