@@ -23,15 +23,15 @@ public class HorizontalNumProgressBar extends ProgressBar {
     public static final int PROGRESS_TEXT_SIZE = 10;
     public static final int PROGRESS_TEXT_OFFSET = 5;
 
-    private int progressReachedColor = PROGRESS_REACHED_COLOR;
-    private int progressUnReachedColor = PROGRESS_UNREACHED_COLOR;
-    private int progressHeight = PROGRESS_HEIGHT;
-    private int progressTextColor = PROGRESS_TEXT_COLOR;
-    private int progressTextSize = PROGRESS_TEXT_SIZE;
-    private int progressTextOffset = PROGRESS_TEXT_OFFSET;
+    protected int progressReachedColor = PROGRESS_REACHED_COLOR;
+    protected int progressUnReachedColor = PROGRESS_UNREACHED_COLOR;
+    protected int progressHeight = PROGRESS_HEIGHT;
+    protected int progressTextColor = PROGRESS_TEXT_COLOR;
+    protected int progressTextSize = PROGRESS_TEXT_SIZE;
+    protected int progressTextOffset = PROGRESS_TEXT_OFFSET;
 
-    private Paint mPaint = new Paint();
-    private int realW;
+    protected Paint mPaint = new Paint();
+    protected int realW;
 
     public HorizontalNumProgressBar(Context context) {
         this(context, null);
@@ -45,12 +45,12 @@ public class HorizontalNumProgressBar extends ProgressBar {
         super(context, attrs, defStyleAttr);
 
         TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.HorizontalNumProgressBar);
-        progressHeight = (int) array.getDimension(R.styleable.HorizontalNumProgressBar_progress_height, dpTopx(PROGRESS_HEIGHT));
+        progressHeight = (int) array.getDimension(R.styleable.HorizontalNumProgressBar_progress_height, dpToPx(PROGRESS_HEIGHT));
         progressReachedColor = array.getColor(R.styleable.HorizontalNumProgressBar_progress_reached_color, PROGRESS_REACHED_COLOR);
         progressUnReachedColor = array.getColor(R.styleable.HorizontalNumProgressBar_progress_unreached_color, PROGRESS_UNREACHED_COLOR);
         progressTextColor = array.getColor(R.styleable.HorizontalNumProgressBar_progress_text_color, PROGRESS_TEXT_COLOR);
-        progressTextSize = (int) array.getDimension(R.styleable.HorizontalNumProgressBar_progress_text_size, dpTopx(PROGRESS_TEXT_SIZE));
-        progressTextOffset = (int) array.getDimension(R.styleable.HorizontalNumProgressBar_progress_text_offset, dpTopx(PROGRESS_TEXT_OFFSET));
+        progressTextSize = (int) array.getDimension(R.styleable.HorizontalNumProgressBar_progress_text_size, dpToPx(PROGRESS_TEXT_SIZE));
+        progressTextOffset = (int) array.getDimension(R.styleable.HorizontalNumProgressBar_progress_text_offset, dpToPx(PROGRESS_TEXT_OFFSET));
         array.recycle();
 
         mPaint.setAntiAlias(true);
@@ -120,7 +120,7 @@ public class HorizontalNumProgressBar extends ProgressBar {
         super.setProgress(progress);
     }
 
-    private int dpTopx(int dp) {
+    protected int dpToPx(int dp) {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, getResources().getDisplayMetrics());
     }
 //
